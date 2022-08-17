@@ -29,7 +29,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1000px;
+  max-width: 1000px;
+	width: 100%;
 	margin: 0 auto;
 }
 .title {
@@ -38,7 +39,7 @@
   grid-template-columns: repeat(7, 30px) calc(100% - 210px);
   border-bottom: 1px solid #000;
 	padding: 5px 0;
-	margin-top: 20px;
+	margin-top: 18px;
 	position: relative;
 }
 
@@ -74,7 +75,7 @@ text-transform: uppercase;
  width: 100%;
  justify-content: flex-end;
  align-items: flex-end;
-  width: 1000px;
+  max-width: 1000px;
 	margin: 40px auto 20px;
 }
 
@@ -118,7 +119,7 @@ text-transform: uppercase;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-right: 45px;
-	font-size: 20px;
+	font-size: 16px;
 	font-family: 'Manrope', sans-serif;
 }
 .del {
