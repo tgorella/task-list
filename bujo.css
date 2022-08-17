@@ -1,0 +1,166 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.day {
+	font-size: 14px;
+	font-weight: 900;
+}
+.marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+	cursor: pointer;
+	width: 100%;
+	min-height: 30px;
+
+}
+
+.marker:nth-child(2n+1) {
+	background-color: rgb(239, 244, 244);
+}
+
+.wl-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+	margin: 0 auto;
+}
+.title {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 30px) calc(100% - 210px);
+  border-bottom: 1px solid #000;
+	padding: 5px 0;
+	margin-top: 20px;
+	position: relative;
+}
+
+#tasks-list {
+	width: 100%;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: repeat(7, 30px) calc(100% - 210px);
+	width: 100%;
+	position: relative;
+}
+.task-title {
+  width: 100%;
+  text-align: center;
+}
+.day {
+  text-align: center;
+}
+
+.add-task {
+	color: rgb(15, 15, 15);
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	font-weight: 900;
+padding: 10px 25px;
+cursor: pointer;
+text-transform: uppercase;
+ width: 100%;
+ justify-content: flex-end;
+ align-items: flex-end;
+  width: 1000px;
+	margin: 40px auto 20px;
+}
+
+.task:hover .del_btn {
+	display: flex;
+}
+.del_btn {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	background-color: #d20202;
+	width: 25px;
+	height: 25px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 3px;
+	font-weight: 900;
+	cursor: pointer;
+	display: none;
+}
+
+.task-marker {
+  border: 2px solid #6a6a6a;
+  width: 30px;
+  min-height: 30px;
+  border-radius: 3px;
+}
+
+.in-progress {
+	background: radial-gradient(circle, rgba(1, 1, 1, 1) 3px, transparent 3px);
+}
+
+.done {
+	background-color: #000!important;
+}
+
+.task-text {
+	padding-left: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 45px;
+	font-size: 20px;
+	font-family: 'Manrope', sans-serif;
+}
+.del {
+	text-decoration: line-through;
+}
+
+
+.btn {
+  padding: 0.7rem 2rem;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  border-radius: 6px;
+  transition: 0.3s background;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background: #fff;
+  cursor: pointer;
+}
+
+input {
+  display: inline-block;
+  width: 50%;
+  border: 1px solid rgba(151, 158, 162, 0.3);
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #f7f7f7;
+  font-family: inherit;
+  transition: 0.22s background;
+  outline: none;
+}
+
+form {
+	width: 100%;
+}
+#timer {
+	display: flex;
+}
+#timer div {
+	margin-right: 10px;
+}
