@@ -16,7 +16,7 @@
   margin: 0 auto;
 	cursor: pointer;
 	width: 100%;
-	min-height: 30px;
+	min-height: 25px;
 
 }
 
@@ -101,7 +101,7 @@ text-transform: uppercase;
 .task-marker {
   border: 2px solid #6a6a6a;
   width: 30px;
-  min-height: 30px;
+  min-height: 25px;
   border-radius: 3px;
 }
 
