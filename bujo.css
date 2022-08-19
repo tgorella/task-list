@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1000px;
+  max-width: 1000px;
 	margin: 0 auto;
 }
 .title {
@@ -74,7 +74,7 @@ text-transform: uppercase;
  width: 100%;
  justify-content: flex-end;
  align-items: flex-end;
-  width: 1000px;
+  max-width: 1000px;
 	margin: 40px auto 20px;
 }
 
@@ -118,7 +118,7 @@ text-transform: uppercase;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-right: 45px;
-	font-size: 20px;
+	font-size: 15px;
 	font-family: 'Manrope', sans-serif;
 }
 .del {
