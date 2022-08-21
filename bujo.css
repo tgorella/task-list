@@ -99,18 +99,46 @@ text-transform: uppercase;
 }
 
 .task-marker {
-  border: 2px solid #6a6a6a;
+  border: 2px solid #000;
   width: 30px;
   min-height: 25px;
   border-radius: 3px;
 }
 
 .in-progress {
-	background: radial-gradient(circle, rgba(1, 1, 1, 1) 3px, transparent 3px);
+	background: radial-gradient(circle, #000 3px, transparent 3px);
+	border: 2px solid #000;
+  width: 30px;
+  min-height: 25px;
+  border-radius: 3px;
 }
 
+.forward {
+	background-image: url(./forward.webp);
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: 2px solid #000;
+  width: 30px;
+  min-height: 25px;
+  border-radius: 3px;
+	
+}
+
+.delegate {
+	background-image: url(./delegirovano.webp);
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: 2px solid #000;
+  width: 30px;
+  min-height: 25px;
+  border-radius: 3px;
+}
 .done {
 	background-color: #000!important;
+	border: 2px solid #000;
+  width: 30px;
+  min-height: 25px;
+  border-radius: 3px;
 }
 
 .task-text {
