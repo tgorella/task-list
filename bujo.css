@@ -186,9 +186,3 @@ input {
 form {
 	width: 100%;
 }
-#timer {
-	display: flex;
-}
-#timer div {
-	margin-right: 10px;
-}
