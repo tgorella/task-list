@@ -6,18 +6,31 @@ const taskList = document.querySelector('#tasks-list');
 taskList.innerHTML = getState();
 
 container.addEventListener('click', (event) => {
-	if (event.target.classList.contains("marker") && event.target.classList.contains("task-marker") && event.target.classList.contains("in-progress") && event.target.classList.contains("done")) {
+	if (event.target.classList.contains("done")) {
 		event.target.classList.remove('done');
 		event.target.classList.remove('in-progress');
 		event.target.classList.remove('task-marker');
+		event.target.classList.remove('delegate');
 		event.target.closest(".task").querySelector('.task-text').classList.remove('del');
+		
 		saveState();
-	} else if (event.target.classList.contains("marker") && event.target.classList.contains("task-marker") && event.target.classList.contains("in-progress")) {
+	} else if (event.target.classList.contains("delegate")) {
 		event.target.classList.add('done');
+		event.target.classList.remove('delegate');
 		event.target.closest(".task").querySelector('.task-text').classList.add('del');
+		
 		saveState();
-	} else if (event.target.classList.contains("marker") && event.target.classList.contains("task-marker")) {
+	} else if (event.target.classList.contains("forward")) {
+		event.target.classList.add('delegate');
+		event.target.classList.remove('forward');
+		saveState();
+	} else if (event.target.classList.contains("in-progress")) {
+		event.target.classList.add('forward');
+		event.target.classList.remove('in-progress');
+		saveState();
+	}  else if (event.target.classList.contains("task-marker")) {
 		event.target.classList.add('in-progress');
+		event.target.classList.remove('task-marker');
 		saveState();
 	}  else if (event.target.classList.contains("marker")) {
 		event.target.classList.add('task-marker');
