@@ -7,56 +7,48 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="./bujo.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com"> 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div class="add-task">
-		<form id="form">
-			<input type="text" name="newtitle" placeholder="Новая задача" />
-			<button type="submit" class="btn">Создать!</button>
-		</form>
+
+	<div class="welcome">
+		<div class="date">
+			<div class="date-number" id="date-number">14</div>
+			<div class="month-name" id="month-name">сентября</div>
+			<div class="day-name" id="day-name">четверг</div>
+		</div>
+		<div class="welcome-text" id="welcomeStat">
+			<p>А тут будет немного текста со статистикой</p>
+		</div>
 	</div>
 
-<div class="wl-list container" id="container">
-<div class="title">
-	<div class="day">ПН</div>
-	<div class="day">ВТ</div>
-	<div class="day">СР</div>
-	<div class="day">ЧТ</div>
-	<div class="day">ПТ</div>
-	<div class="day">СБ</div>
-	<div class="day">ВС</div>
-	<div class="task-title">TO-DO</div>
-</div>
-<div id="tasks-list">
-<div class="task">
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="task-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae repellat laboriosam harum autem tempora dolore placeat assumenda labore omnis tempore iusto, eius, reiciendis corrupti. Totam cumque ipsa voluptas optio non. Earum, sapiente quaerat ea dolorem voluptatibus praesentium illo non officiis.</div>
-	<div class="del_btn">-</div>
-</div>
-<div class="task">
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="marker"></div>
-	<div class="task-text">А тут еще что-то надо сделать</div>
-	<div class="del_btn">-</div>
-</div>
-</div>
-</div>
+	<div class="add-task-button" id="add-task-container">
+		<h2>Добавить новую задачу</h2>
+		<form id="form">
+			<input type="text" name="newtitle" placeholder="Текст" />
+			<button type="submit" class="btn">+ Создать!</button>
+		</form>
+	</div>
+	<div class="overlay" onclick="closeModal()"></div>
 
+	<div class="wl-list container" id="container">
+		<div class="title">
+			<div class="day">П</div>
+			<div class="day">В</div>
+			<div class="day">С</div>
+			<div class="day">Ч</div>
+			<div class="day">П</div>
+			<div class="day">С</div>
+			<div class="day">В</div>
+			<div class="task-title">TO-DO</div>
+		</div>
+		<div id="tasks-list">
+
+		</div>
+	</div>
 
 
 
