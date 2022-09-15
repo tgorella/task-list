@@ -3,7 +3,58 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+body {
+	display: flex;
+	justify-content: center;
+	min-width: 100%;
+	flex-direction: column;
+	align-items: center;
+	font-family: Verdana, sans-serif;
+}
+.welcome {
+	display: flex;
+	width: 900px;
+	margin: o auto;
+	padding: 25px 40px;
+	background-color: #eee;
+	border-radius: 60px;
+	margin-top: 40px;
+	
+}
+.date {
+text-align: center;
+margin: 0 40px;
+}
+.active-date {
+	background: radial-gradient(circle, #fbac0f 70%, transparent 70%);
+}
+.date-number {
+	font-size: 60px;
+	font-weight: 900;
+}
+.month-name {
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.day-name {
+	font-size: 20px;
+}
+/* .welcome-text {
+} */
 
+h2 {
+	font-family: Pribambas, sans-serif;
+	width: 450px;
+	text-align: center;
+	transition: ease 2s;
+}
+
+
+#container {
+	width: 100%;
+	max-width: 900px;
+
+}
 .day {
 	font-size: 14px;
 	font-weight: 900;
@@ -59,25 +110,97 @@
 .day {
   text-align: center;
 }
+.add-task-button {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 20px;
+	height: 20px;
+	background: #ffa113;
+	border-radius: 50%;
+	border: 50px solid #ffa113;
+	z-index: 200;
+	cursor: pointer;
+}
+.add-task-button+.overlay, .add-task-button .close-button {
+	display: none;
+}
+
+.add-task-button h2, .add-task-button form {
+	display: none;
+}
+.add-task-button::before {
+	content: '+';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 201;
+	color: #fff;
+	font-size: 35px;
+}
 
 .add-task {
 	color: rgb(15, 15, 15);
-	height: 25px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border-radius: 5px;
 	font-weight: 900;
-padding: 10px 25px;
-cursor: pointer;
+padding: 30px 25px;
 text-transform: uppercase;
- width: 100%;
- justify-content: flex-end;
- align-items: flex-end;
-  max-width: 1000px;
-	margin: 40px auto 20px;
+ width: 450px;
+ max-width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	z-index: 200;
+	box-shadow: 0 0 45px rgba(0,0,0, 0.3);
+	transition: width ease 1s;
+	overflow: hidden;
 }
 
+.add-task form {
+	display: flex;
+	flex-direction: column;
+	padding: 25px 0;
+}
+.add-task form input {
+	width: 100%;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.close-button {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	background-color: #000;
+	padding: 10px;
+	color: #fff;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+border-radius: 50%;
+z-index: 300;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+background-color: rgba(0,0,0, 0.5);
+z-index: 100;
+
+}
 .task:hover .del_btn {
 	display: flex;
 }
@@ -88,8 +211,9 @@ text-transform: uppercase;
 	transform: translateY(-50%);
 	color: #fff;
 	background-color: #d20202;
-	width: 25px;
+	width: auto;
 	height: 25px;
+	padding: 0 5px;
 	justify-content: center;
 	align-items: center;
 	border-radius: 3px;
@@ -155,11 +279,13 @@ text-transform: uppercase;
 
 
 .btn {
-  padding: 0.7rem 2rem;
-  border: 1px solid #ccc;
-  background: #f7f7f7;
+  padding: 20px 30px;
+  border: 1px solid #f9970e;
+  background: #fbac0f;
   border-radius: 6px;
   transition: 0.3s background;
+	color: #fff;
+	font-size: 20px;
 }
 
 .btn:focus {
@@ -167,7 +293,7 @@ text-transform: uppercase;
 }
 
 .btn:hover {
-  background: #fff;
+  background: #ffa113;
   cursor: pointer;
 }
 
@@ -185,4 +311,59 @@ input {
 
 form {
 	width: 100%;
+}
+
+@media screen and (max-width: 450px) {
+	h2 {
+		width: 100%;
+		font-size: 20px;
+	}
+	.task, .title {
+		grid-template-columns: repeat(7, 20px) calc(100% - 140px);
+
+	}
+	.task-marker, .in-progress, .forward, .delegate, .done {
+		width: 20px;
+	}
+	.forward, .delegate {
+		background-size: 90%;
+	}
+	.task-text {
+		font-size: 12px;
+	}
+	.del_btn {
+		font-size: 10px;
+	}
+	.add-task-button  {
+		border: 30px solid #ffa113; 
+	}
+	.welcome {
+		width: 100%;
+		border-radius: 0;
+		margin-top: 0;
+		padding: 0;
+		
+	}
+	.date {
+	text-align: center;
+	margin: 0;
+	background-color: orange;
+	padding: 25px 20px;
+	color: #000;
+	}
+	.date-number {
+		font-size: 40px;
+	}
+	.month-name {
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+	.day-name {
+		font-size: 16px;
+	}
+	.welcome-text {
+		padding: 25px 20px;
+		background-color: #ffd787;
+		width: 100%;
+	}
 }
