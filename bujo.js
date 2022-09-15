@@ -1,16 +1,67 @@
+const newTaskButton = document.querySelector('.add-task-button');
+const newTaskContainer = document.querySelector('#add-task-container');
+const closeButton = document.querySelector("#close-button");
 const container = document.querySelector('#container');
 const form = document.querySelector('#form');
 const LS_KEY = 'MY_TASKS';
 const taskList = document.querySelector('#tasks-list');
+const dateNumber = document.querySelector('#date-number');
+const monthName = document.querySelector('#month-name');
+const dayName = document.querySelector('#day-name');
+const currentDate = new Date();
+const daysOfWeek = document.getElementsByClassName('day');
+const welcomeStats = document.querySelector('#welcomeStat');
+
 
 taskList.innerHTML = getState();
+
+dateNumber.innerHTML = currentDate.getDate();
+getCurrentMonth();
+getCurrentDateName();
+showStats();
+
+
+function getCurrentMonth() {
+	const montNames = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря',]
+	monthName.innerHTML = montNames[currentDate.getMonth()];
+		
+}
+
+function getCurrentDateName() {
+	const daysNames = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница','суббота','воскресенье']
+	dayName.innerHTML = daysNames[currentDate.getDay()-1];
+	daysOfWeek[currentDate.getDay()-1].classList.add('active-date');
+
+}
+
+function showStats() {
+	const taskTotal = document.getElementsByClassName('task');
+	welcomeStats.innerHTML = `<p>Задач в списке: ${taskTotal.length}</p> `
+}
+
+function getTodayTasksTotal() {
+	
+}
+
+newTaskContainer.addEventListener('click', (event) => {
+	newTaskContainer.classList.remove("add-task-button");
+	newTaskContainer.classList.add("add-task");
+	console.log('open');
+
+})
+
+function closeModal() {
+	newTaskContainer.classList.remove("add-task");
+	newTaskContainer.classList.add("add-task-button");
+	console.log('close');
+}
+
+
+
 
 container.addEventListener('click', (event) => {
 	if (event.target.classList.contains("done")) {
 		event.target.classList.remove('done');
-		event.target.classList.remove('in-progress');
-		event.target.classList.remove('task-marker');
-		event.target.classList.remove('delegate');
 		event.target.closest(".task").querySelector('.task-text').classList.remove('del');
 		
 		saveState();
@@ -37,8 +88,9 @@ container.addEventListener('click', (event) => {
 		saveState();
 	} 
 	if (event.target.classList.contains("del_btn")) {
-		event.target.closest(".task").innerHTML = "";
-
+		const element = event.target.closest(".task");
+		element.remove();
+		showStats()
 		saveState();
 	} 
 });
@@ -63,9 +115,9 @@ form.addEventListener('submit', (event) => {
 		<div class="marker"></div>
 		<div class="marker"></div>
 		<div class="task-text">${title.value}</div>
-		<div class="del_btn">-</div>
+		<div class="del_btn">Удалить</div>
 	</div>`;
-	
+	showStats()
   }
 
 title.value = '';
