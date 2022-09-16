@@ -24,15 +24,16 @@
 			<p>А тут будет немного текста со статистикой</p>
 		</div>
 	</div>
-
-	<div class="add-task-button" id="add-task-container">
+	<div class="add-task-button" id="add-task-button"></div>
+	<div class="add-task hide" id="add-task-container">
+		<div class="close-button" onclick="closeModal()">X</div>
 		<h2>Добавить новую задачу</h2>
 		<form id="form">
 			<input type="text" name="newtitle" placeholder="Текст" />
 			<button type="submit" class="btn">+ Создать!</button>
 		</form>
 	</div>
-	<div class="overlay" onclick="closeModal()"></div>
+	<div class="overlay hide" id="overlay"></div>
 
 	<div class="wl-list container" id="container">
 		<div class="title">
