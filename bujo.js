@@ -1,6 +1,7 @@
-const newTaskButton = document.querySelector('.add-task-button');
 const newTaskContainer = document.querySelector('#add-task-container');
+const newTaskButton = document.querySelector('#add-task-button');
 const closeButton = document.querySelector("#close-button");
+const overlay = document.querySelector("#overlay");
 const container = document.querySelector('#container');
 const form = document.querySelector('#form');
 const LS_KEY = 'MY_TASKS';
@@ -40,20 +41,21 @@ function showStats() {
 }
 
 function getTodayTasksTotal() {
-	
+
 }
 
-newTaskContainer.addEventListener('click', (event) => {
-	newTaskContainer.classList.remove("add-task-button");
-	newTaskContainer.classList.add("add-task");
-	console.log('open');
+newTaskButton.addEventListener('click', (event) => {
+	newTaskContainer.classList.remove("hide");
+	overlay.classList.remove("hide");
+	newTaskButton.classList.add("hide");
 
 })
 
 function closeModal() {
-	newTaskContainer.classList.remove("add-task");
-	newTaskContainer.classList.add("add-task-button");
-	console.log('close');
+	newTaskContainer.classList.add("hide");
+	newTaskButton.classList.remove("hide");
+	overlay.classList.add("hide");
+
 }
 
 
