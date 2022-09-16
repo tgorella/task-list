@@ -122,9 +122,7 @@ h2 {
 	z-index: 200;
 	cursor: pointer;
 }
-.add-task-button+.overlay, .add-task-button .close-button {
-	display: none;
-}
+
 
 .add-task-button h2, .add-task-button form {
 	display: none;
@@ -159,8 +157,7 @@ text-transform: uppercase;
 	background-color: #fff;
 	z-index: 200;
 	box-shadow: 0 0 45px rgba(0,0,0, 0.3);
-	transition: width ease 1s;
-	overflow: hidden;
+	transition: width ease 2s;
 }
 
 .add-task form {
@@ -199,8 +196,12 @@ z-index: 300;
 	right: 0;
 background-color: rgba(0,0,0, 0.5);
 z-index: 100;
-
 }
+
+.hide {
+	display: none;
+}
+
 .task:hover .del_btn {
 	display: flex;
 }
@@ -313,7 +314,7 @@ form {
 	width: 100%;
 }
 
-@media only screen and (max-width: 520px) {
+@media screen and (max-width: 450px) {
 	h2 {
 		width: 100%;
 		font-size: 20px;
