@@ -52,13 +52,19 @@ function getCurrentDateTaskTotal() {
 	const done = tasks.filter( (task) => {
 		const dayKey = task[statusNames[currentDate.getDay()-1]];
 					return dayKey === 'done'}).length;
-				const percent = Number.parseInt(done * 100 / total)
+				const percent =  Number.parseInt(done * 100 / total)
 	welcomeStats.innerHTML += `<p class="today_total">Задач на сегодня: ${total}</p>
 	<p style="progress-title">Прогресс:</p>
 			<div class="progress_container"><div class="progress_value" id="progress">${percent}%</div></div>
 			`
 			const progress = document.querySelector('#progress')
 			progress.style.width = percent+'%';
+			if (isNaN(percent)) {
+				progress.textContent = 'Кажется, сегодня отдыхаем :)';
+				progress.style.width = 100+'%';
+				progress.style.backgroundColor = 'transparent';
+				progress.style.color = '#000';
+			};
 }
 
 function renderTaskList() {
