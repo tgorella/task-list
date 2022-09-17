@@ -48,8 +48,17 @@ function getCurrentDateTaskTotal() {
 	const statusNames = ['monStatus','tueStatus','wedStatus','thurStatus','friStatus','satStatus','sunStatus'];
 	const total = tasks.filter( (task) => {
 		const dayKey = task[statusNames[currentDate.getDay()-1]];
-			return dayKey !== '' && dayKey !== 'forward'}).length;
-			welcomeStats.innerHTML += `<p class="today_total">Задач на сегодня: ${total}</p> `
+			return dayKey !== ''}).length;
+	const done = tasks.filter( (task) => {
+		const dayKey = task[statusNames[currentDate.getDay()-1]];
+					return dayKey === 'done'}).length;
+				const percent = Number.parseInt(done * 100 / total)
+	welcomeStats.innerHTML += `<p class="today_total">Задач на сегодня: ${total}</p>
+	<p style="progress-title">Прогресс:</p>
+			<div class="progress_container"><div class="progress_value" id="progress">${percent}%</div></div>
+			`
+			const progress = document.querySelector('#progress')
+			progress.style.width = percent+'%';
 }
 
 function renderTaskList() {
