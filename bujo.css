@@ -21,7 +21,7 @@ article {
 	margin: 25px;
 	padding: 0 11px 50px 11px;
 	min-height: 95vh;
-	max-width: 100%;
+	max-width: 95%;
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
