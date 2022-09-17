@@ -48,12 +48,12 @@ function getTotalTasks() {
 }
 
 function getCurrentDateTaskTotal() {
-	const statusNames = ['monStatus','tueStatus','wedStatus','thurStatus','friStatus','satStatus','sunStatus'];
+	const statusNames = ['sunStatus', 'monStatus','tueStatus','wedStatus','thurStatus','friStatus','satStatus'];
 	const total = tasks.filter( (task) => {
-		const dayKey = task[statusNames[currentDate.getDay()-1]];
+		const dayKey = task[statusNames[currentDate.getDay()]];
 			return dayKey !== ''}).length;
 	const done = tasks.filter( (task) => {
-		const dayKey = task[statusNames[currentDate.getDay()-1]];
+		const dayKey = task[statusNames[currentDate.getDay()]];
 					return dayKey === 'done'}).length;
 				const percent =  Number.parseInt(done * 100 / total)
 	welcomeStats.innerHTML += `<p class="today_total">Задач на сегодня: ${total}</p>
