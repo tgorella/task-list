@@ -60,7 +60,7 @@ function getCurrentDateTaskTotal() {
 			const progress = document.querySelector('#progress')
 			progress.style.width = percent+'%';
 			if (isNaN(percent)) {
-				progress.textContent = 'Кажется, сегодня отдыхаем :)';
+				progress.textContent = 'Cегодня отдыхаем :)';
 				progress.style.width = 100+'%';
 				progress.style.backgroundColor = 'transparent';
 				progress.style.color = '#000';
