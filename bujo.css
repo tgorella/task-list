@@ -3,6 +3,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+:root {
+	--index: calc(1vw + 1vh);
+}
 body {
 	display: flex;
 	justify-content: center;
@@ -14,6 +17,7 @@ body {
 .welcome {
 	display: flex;
 	width: 900px;
+	max-width: 95%;
 	margin: o auto;
 	padding: 25px 40px;
 	background-color: #eee;
@@ -51,7 +55,7 @@ h2 {
 
 
 #container {
-	width: 100%;
+	width: 95%;
 	max-width: 900px;
 
 }
@@ -149,7 +153,7 @@ h2 {
 padding: 30px 25px;
 text-transform: uppercase;
  width: 450px;
- max-width: 100%;
+ max-width: 90%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -348,7 +352,6 @@ form {
 	.date {
 	text-align: center;
 	margin: 0;
-	background-color: orange;
 	padding: 25px 20px;
 	color: #000;
 	}
@@ -364,7 +367,6 @@ form {
 	}
 	.welcome-text {
 		padding: 25px 20px;
-		background-color: #ffd787;
 		width: 100%;
 	}
 }
