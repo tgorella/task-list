@@ -369,9 +369,7 @@ form {
 	.del_btn {
 		font-size: 10px;
 	}
-	.add-task-button  {
-		border: 30px solid #ffa113; 
-	}
+	
 	.welcome {
 		width: 100%;
 		border-radius: 0;
