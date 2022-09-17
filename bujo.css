@@ -20,17 +20,22 @@ body {
 	max-width: 95%;
 	margin: o auto;
 	padding: 25px 40px;
-	background-color: #eee;
-	border-radius: 60px;
+	background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+	border-radius: 40px;
 	margin-top: 40px;
 	
 }
+.welcome-text {
+	width: 100%;
+}
+
 .date {
 text-align: center;
 margin: 0 40px;
 }
 .active-date {
-	background: radial-gradient(circle, #fbac0f 70%, transparent 70%);
+	background: radial-gradient(circle, #F7CE68 70%, transparent 70%);
 }
 .date-number {
 	font-size: 60px;
@@ -43,8 +48,34 @@ margin: 0 40px;
 .day-name {
 	font-size: 20px;
 }
-/* .welcome-text {
-} */
+.today_total {
+	font-size: 25px;
+	margin: 10px 0;
+	font-weight: 600;
+}
+
+.progress_container {
+	width: 100%;
+	height: 30px;
+	margin-top: 6px;
+	background-color: rgba(255, 255, 255, 0.304);
+	border-radius: 15px;
+	overflow: hidden;
+	border: 1px solid #ffc36e;
+}
+.progress-title {
+	margin-top: 20px;
+}
+.progress_value {
+	height: 30px;
+	background-color: #f00;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	font-size: 14px;
+}
 
 h2 {
 	font-family: Pribambas, sans-serif;
@@ -118,11 +149,10 @@ h2 {
 	position: fixed;
 	right: 20px;
 	bottom: 20px;
-	width: 20px;
-	height: 20px;
-	background: #ffa113;
+	width: 70px;
+	height: 70px;
+	background-image: linear-gradient(62deg, #fb9358 0%, #fcce59 100%);
 	border-radius: 50%;
-	border: 50px solid #ffa113;
 	z-index: 200;
 	cursor: pointer;
 }
@@ -222,9 +252,9 @@ z-index: 100;
 	justify-content: center;
 	align-items: center;
 	border-radius: 3px;
-	font-weight: 900;
 	cursor: pointer;
 	display: none;
+	font-size: 12px;
 }
 
 .task-marker {
@@ -286,7 +316,7 @@ z-index: 100;
 .btn {
   padding: 20px 30px;
   border: 1px solid #f9970e;
-  background: #fbac0f;
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
   border-radius: 6px;
   transition: 0.3s background;
 	color: #fff;
@@ -352,21 +382,25 @@ form {
 	.date {
 	text-align: center;
 	margin: 0;
-	padding: 25px 20px;
+	padding: 25px 10px;
 	color: #000;
 	}
 	.date-number {
-		font-size: 40px;
+		font-size: 30px;
 	}
 	.month-name {
 		font-size: 14px;
 		text-transform: uppercase;
 	}
 	.day-name {
-		font-size: 16px;
+		font-size: 14px;
 	}
 	.welcome-text {
-		padding: 25px 20px;
+		padding: 25px 10px;
 		width: 100%;
+		font-size: 14px;
+	}
+	.today_total {
+		font-size: 16px;
 	}
 }
