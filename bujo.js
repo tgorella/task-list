@@ -14,90 +14,137 @@ const daysOfWeek = document.getElementsByClassName('day');
 const welcomeStats = document.querySelector('#welcomeStat');
 
 
-taskList.innerHTML = getState();
+let tasks = getState();
 
 dateNumber.innerHTML = currentDate.getDate();
+
 getCurrentMonth();
 getCurrentDateName();
 showStats();
-
+renderTaskList();
 
 function getCurrentMonth() {
 	const montNames = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря',]
 	monthName.innerHTML = montNames[currentDate.getMonth()];
-		
 }
 
 function getCurrentDateName() {
 	const daysNames = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница','суббота','воскресенье']
 	dayName.innerHTML = daysNames[currentDate.getDay()-1];
 	daysOfWeek[currentDate.getDay()-1].classList.add('active-date');
-
 }
 
 function showStats() {
-	const taskTotal = document.getElementsByClassName('task');
-	welcomeStats.innerHTML = `<p>Задач в списке: ${taskTotal.length}</p> `
+	getTotalTasks();
+	getCurrentDateTaskTotal();
 }
 
-function getTodayTasksTotal() {
+function getTotalTasks() {
+	const taskTotal = tasks.length;
+	welcomeStats.innerHTML = `<p>Задач в списке: ${taskTotal}</p> `;
+}
 
+function getCurrentDateTaskTotal() {
+	const statusNames = ['monStatus','tueStatus','wedStatus','thurStatus','friStatus','satStatus','sunStatus'];
+	const total = tasks.filter( (task) => {
+		const dayKey = task[statusNames[currentDate.getDay()-1]];
+			return dayKey !== '' && dayKey !== 'forward'}).length;
+			welcomeStats.innerHTML += `<p class="today_total">Задач на сегодня: ${total}</p> `
+}
+
+function renderTaskList() {
+	taskList.innerHTML = "";
+	tasks.map( (task) => {
+		taskList.innerHTML += `<div class="task" id="${task.id}">
+		<div class="mon marker ${task.monStatus}"></div>
+		<div class="tue marker ${task.tueStatus}"></div>
+		<div class="wed marker ${task.wedStatus}"></div>
+		<div class="thur marker ${task.thurStatus}"></div>
+		<div class="fri marker ${task.friStatus}"></div>
+		<div class="sat marker ${task.satStatus}"></div>
+		<div class="sun marker ${task.sunStatus}"></div>
+		<div class="task-text">${task.text}</div>
+		<div class="del_btn">Удалить</div>
+	</div>`;
+	showStats()
+	})
+}
+
+function deleteTask(id) {
+	const itemToDel = tasks.findIndex( (item) => { item.id === id})
+	tasks.splice(itemToDel, 1);
+	renderTaskList();
+		showStats();
+		saveState();
+}
+
+function closeModal() {
+	newTaskContainer.classList.add("hide");
+	newTaskButton.classList.remove("hide");
+	overlay.classList.add("hide");
 }
 
 newTaskButton.addEventListener('click', (event) => {
 	newTaskContainer.classList.remove("hide");
 	overlay.classList.remove("hide");
 	newTaskButton.classList.add("hide");
-
 })
 
-function closeModal() {
-	newTaskContainer.classList.add("hide");
-	newTaskButton.classList.remove("hide");
-	overlay.classList.add("hide");
-
-}
-
-
-
-
 container.addEventListener('click', (event) => {
-	if (event.target.classList.contains("done")) {
-		event.target.classList.remove('done');
-		event.target.closest(".task").querySelector('.task-text').classList.remove('del');
-		
-		saveState();
-	} else if (event.target.classList.contains("delegate")) {
-		event.target.classList.add('done');
-		event.target.classList.remove('delegate');
-		event.target.closest(".task").querySelector('.task-text').classList.add('del');
-		
-		saveState();
-	} else if (event.target.classList.contains("forward")) {
-		event.target.classList.add('delegate');
-		event.target.classList.remove('forward');
-		saveState();
-	} else if (event.target.classList.contains("in-progress")) {
-		event.target.classList.add('forward');
-		event.target.classList.remove('in-progress');
-		saveState();
-	}  else if (event.target.classList.contains("task-marker")) {
-		event.target.classList.add('in-progress');
-		event.target.classList.remove('task-marker');
-		saveState();
-	}  else if (event.target.classList.contains("marker")) {
-		event.target.classList.add('task-marker');
-		saveState();
-	} 
+	let id = event.target.closest(".task").id;
+
+	if (event.target.classList.contains("mon")) {
+		changeTaskStatus(id, 'monStatus')
+	}
+	if (event.target.classList.contains("tue")) {
+		changeTaskStatus(id, 'tueStatus')
+	}
+	if (event.target.classList.contains("wed")) {
+		changeTaskStatus(id, 'wedStatus')
+	}
+	if (event.target.classList.contains("thur")) {
+		changeTaskStatus(id, 'thurStatus')
+	}
+	if (event.target.classList.contains("fri")) {
+		changeTaskStatus(id, 'friStatus')
+	}
+	if (event.target.classList.contains("sat")) {
+		changeTaskStatus(id, 'satStatus')
+	}
+	if (event.target.classList.contains("sun")) {
+		changeTaskStatus(id, 'sunStatus')
+	}
 	if (event.target.classList.contains("del_btn")) {
-		const element = event.target.closest(".task");
-		element.remove();
-		showStats()
-		saveState();
+		deleteTask(id);		
 	} 
 });
 
-
+function changeTaskStatus(id, key) {
+	const findedItem = tasks.findIndex( (item) => item.id === Number(id));
+	let status = tasks[findedItem][key];
+		switch (status) {
+			case '':
+				tasks[findedItem][key] = 'task-marker';
+				break;
+			case 'task-marker':
+				tasks[findedItem][key] = 'in-progress';
+				break;
+			case 'in-progress':
+				tasks[findedItem][key] = 'forward';
+				break;
+			case 'forward':
+				tasks[findedItem][key] = 'delegate';
+				break;
+			case 'delegate':
+				tasks[findedItem][key] = 'done';
+				break;
+			case 'done':
+				tasks[findedItem][key] = '';
+				break;
+		}
+		saveState();
+		renderTaskList();
+}
 
 form.addEventListener('submit', (event) => {
 
@@ -108,34 +155,30 @@ form.addEventListener('submit', (event) => {
   if(!title.value) {
     return
   } else {
-    taskList.innerHTML += `<div class="task">
-		<div class="marker"></div>
-		<div class="marker"></div>
-		<div class="marker"></div>
-		<div class="marker"></div>
-		<div class="marker"></div>
-		<div class="marker"></div>
-		<div class="marker"></div>
-		<div class="task-text">${title.value}</div>
-		<div class="del_btn">Удалить</div>
-	</div>`;
-	showStats()
+		tasks[tasks.length] = {
+			id: Number.parseInt(Math.random()*100000),
+			text: title.value,
+			monStatus: '',
+			tueStatus: '',
+			wedStatus: '',
+			thurStatus: '',
+			friStatus: '',
+			satStatus: '',
+			sunStatus: '',
+		}
+	showStats();
+	renderTaskList();
+	saveState();
   }
-
+	
 title.value = '';
-saveState();
-console.log(oldHtml);
 })
 
-let oldHtml = taskList.innerHTML;
-
 function saveState() {
-	oldHtml = taskList.innerHTML;
-	localStorage.setItem(LS_KEY, oldHtml);
+	localStorage.setItem(LS_KEY, JSON.stringify(tasks));
 	}
 	
-	
 	function getState() {
-	const raw = localStorage.getItem(LS_KEY);
-	return raw ? raw : "";
+		const raw = localStorage.getItem(LS_KEY);
+		return raw ? JSON.parse(raw) : [];
 	}
