@@ -374,6 +374,7 @@ form {
 	article {
 		padding: 0 0 40px 0;
 		margin: 10px;
+		max-width: 97%;
 	}
 	.task, .title {
 		grid-template-columns: repeat(7, 20px) calc(100% - 140px);
