@@ -13,6 +13,21 @@ body {
 	flex-direction: column;
 	align-items: center;
 	font-family: Verdana, sans-serif;
+	background: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+}
+article {
+	background-color: #fff;
+	margin: 25px;
+	padding: 0 11px 50px 11px;
+	min-height: 95vh;
+	max-width: 95%;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .welcome {
 	display: flex;
@@ -22,6 +37,7 @@ body {
 	padding: 25px 40px;
 	background-color: #FBAB7E;
 background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+background-size: cover;
 	border-radius: 40px;
 	margin-top: 40px;
 	
@@ -68,13 +84,14 @@ margin: 0 40px;
 }
 .progress_value {
 	height: 30px;
-	background-color: #f00;
+	background-color: rgb(222, 0, 85);
 	color: #fff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
 	font-size: 14px;
+	transition: width 1s ease-in-out;
 }
 
 h2 {
@@ -155,6 +172,7 @@ h2 {
 	border-radius: 50%;
 	z-index: 200;
 	cursor: pointer;
+	box-shadow: 0 0 30px rgba(109, 52, 14, 0.5);
 }
 
 
@@ -353,6 +371,10 @@ form {
 		width: 100%;
 		font-size: 20px;
 	}
+	article {
+		padding: 0 0 40px 0;
+		margin: 10px;
+	}
 	.task, .title {
 		grid-template-columns: repeat(7, 20px) calc(100% - 140px);
 
@@ -362,9 +384,12 @@ form {
 	}
 	.forward, .delegate {
 		background-size: 90%;
+		
 	}
 	.task-text {
 		font-size: 12px;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 	.del_btn {
 		font-size: 10px;
@@ -372,9 +397,10 @@ form {
 	
 	.welcome {
 		width: 100%;
-		border-radius: 0;
+		border-radius: 0 0 5px 5px;
 		margin-top: 0;
 		padding: 0;
+		align-items: center;
 		
 	}
 	.date {
@@ -396,9 +422,14 @@ form {
 	.welcome-text {
 		padding: 25px 10px;
 		width: 100%;
-		font-size: 14px;
+		font-size: 12px;
 	}
 	.today_total {
 		font-size: 16px;
+		margin-top: 5px;
+	}
+
+	.progress_value {
+		font-size: 12px;
 	}
 }
