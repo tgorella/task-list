@@ -29,10 +29,13 @@ function getCurrentMonth() {
 }
 
 function getCurrentDateName() {
-	const daysNames = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница','суббота','воскресенье']
-	dayName.innerHTML = daysNames[currentDate.getDay()-1];
+	const daysNames = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница','суббота']
+	dayName.innerHTML = daysNames[currentDate.getDay()];
+	if (currentDate.getDay() ===  0) {
+		daysOfWeek[6].classList.add('active-date');
+	} else {
 	daysOfWeek[currentDate.getDay()-1].classList.add('active-date');
-}
+}}
 
 function showStats() {
 	getTotalTasks();
