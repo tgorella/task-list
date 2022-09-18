@@ -89,7 +89,7 @@ function renderTaskList() {
 }
 
 function deleteTask(id) {
-	const itemToDel = tasks.findIndex( (item) => { item.id === id})
+	const itemToDel = tasks.findIndex( (item) => item.id === Number(id));
 	tasks.splice(itemToDel, 1);
 	renderTaskList();
 		showStats();
@@ -133,7 +133,7 @@ container.addEventListener('click', (event) => {
 		changeTaskStatus(id, 'sunStatus')
 	}
 	if (event.target.classList.contains("del_btn")) {
-		deleteTask(id);		
+		deleteTask(id);
 	} 
 });
 
