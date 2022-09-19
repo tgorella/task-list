@@ -74,13 +74,13 @@ function renderTaskList() {
 	taskList.innerHTML = "";
 	tasks.map( (task) => {
 		taskList.innerHTML += `<div data-name="task" class="task" id="${task.id}">
-		<div class="mon marker ${task.monStatus}"></div>
-		<div class="tue marker ${task.tueStatus}"></div>
-		<div class="wed marker ${task.wedStatus}"></div>
-		<div class="thur marker ${task.thurStatus}"></div>
-		<div class="fri marker ${task.friStatus}"></div>
-		<div class="sat marker ${task.satStatus}"></div>
-		<div class="sun marker ${task.sunStatus}"></div>
+		<div data-day="mon" class="marker ${task.monStatus}"></div>
+		<div data-day="tue" class="marker ${task.tueStatus}"></div>
+		<div data-day="wed" class="marker ${task.wedStatus}"></div>
+		<div data-day="thur"class="marker ${task.thurStatus}"></div>
+		<div data-day="fri" class="marker ${task.friStatus}"></div>
+		<div data-day="sat" class="marker ${task.satStatus}"></div>
+		<div data-day="sun" class="marker ${task.sunStatus}"></div>
 		<div class="task-text">${task.text}</div>
 		<div class="del_btn">Удалить</div>
 	</div>`;
@@ -111,25 +111,25 @@ newTaskButton.addEventListener('click', (event) => {
 container.addEventListener('click', (event) => {
 	let id = event.target.closest("[data-name='task']")?.id;
 
-	if (event.target.classList.contains("mon")) {
+	if (event.target.dataset.day === "mon") {
 		changeTaskStatus(id, 'monStatus')
 	}
-	if (event.target.classList.contains("tue")) {
+	if (event.target.dataset.day === "tue") {
 		changeTaskStatus(id, 'tueStatus')
 	}
-	if (event.target.classList.contains("wed")) {
+	if (event.target.dataset.day === "wed") {
 		changeTaskStatus(id, 'wedStatus')
 	}
-	if (event.target.classList.contains("thur")) {
+	if (event.target.dataset.day === "thur") {
 		changeTaskStatus(id, 'thurStatus')
 	}
-	if (event.target.classList.contains("fri")) {
+	if (event.target.dataset.day === "fri") {
 		changeTaskStatus(id, 'friStatus')
 	}
-	if (event.target.classList.contains("sat")) {
+	if (event.target.dataset.day === "sat") {
 		changeTaskStatus(id, 'satStatus')
 	}
-	if (event.target.classList.contains("sun")) {
+	if (event.target.dataset.day === "sun") {
 		changeTaskStatus(id, 'sunStatus')
 	}
 	if (event.target.classList.contains("del_btn")) {
