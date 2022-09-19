@@ -82,7 +82,7 @@ function renderTaskList() {
 		<div data-day="sat" class="marker ${task.satStatus}"></div>
 		<div data-day="sun" class="marker ${task.sunStatus}"></div>
 		<div class="task-text">${task.text}</div>
-		<div class="del_btn">Удалить</div>
+		<div data-btn="del" class="del_btn">Удалить</div>
 	</div>`;
 	showStats()
 	})
@@ -132,7 +132,7 @@ container.addEventListener('click', (event) => {
 	if (event.target.dataset.day === "sun") {
 		changeTaskStatus(id, 'sunStatus')
 	}
-	if (event.target.classList.contains("del_btn")) {
+	if (event.target.dataset.btn === "del") {
 		deleteTask(id);
 	} 
 });
