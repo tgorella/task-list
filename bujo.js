@@ -73,7 +73,7 @@ function getCurrentDateTaskTotal() {
 function renderTaskList() {
 	taskList.innerHTML = "";
 	tasks.map( (task) => {
-		taskList.innerHTML += `<div class="task" id="${task.id}">
+		taskList.innerHTML += `<div data-name="task" class="task" id="${task.id}">
 		<div class="mon marker ${task.monStatus}"></div>
 		<div class="tue marker ${task.tueStatus}"></div>
 		<div class="wed marker ${task.wedStatus}"></div>
@@ -109,7 +109,7 @@ newTaskButton.addEventListener('click', (event) => {
 })
 
 container.addEventListener('click', (event) => {
-	let id = event.target.closest(".task").id;
+	let id = event.target.closest("[data-name='task']")?.id;
 
 	if (event.target.classList.contains("mon")) {
 		changeTaskStatus(id, 'monStatus')
