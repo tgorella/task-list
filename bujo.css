@@ -1,115 +1,123 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 :root {
-	--index: calc(1vw + 1vh);
+  --index: calc(1vw + 1vh);
 }
 body {
-	display: flex;
-	justify-content: center;
-	min-width: 100%;
-	flex-direction: column;
-	align-items: center;
-	font-family: Verdana, sans-serif;
-	background: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-family: Verdana, sans-serif;
+  background: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
 article {
-	background-color: #fff;
-	margin: 25px;
-	padding: 0 11px 50px 11px;
-	min-height: 95vh;
-	max-width: 95%;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 15px;
-	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin: 25px 10px;
+  padding: 0 11px 50px 11px;
+  min-height: 95vh;
+  max-width: 95%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
+#habit_tracker {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  max-width: 97%;
+  background-color: transparent;
+  box-shadow: none;
+  overflow-y: scroll;
+  max-height: 97vh;
+}
+
 .welcome {
-	display: flex;
-	width: 900px;
-	max-width: 95%;
-	margin: o auto;
-	padding: 25px 40px;
-	background-color: #FBAB7E;
-background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-background-size: cover;
-	border-radius: 40px;
-	margin-top: 40px;
-	
+  display: flex;
+  width: 800px;
+  max-width: 95%;
+  margin: o auto;
+  padding: 25px 40px;
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+  background-size: cover;
+  border-radius: 40px;
+  margin-top: 40px;
 }
 .welcome-text {
-	width: 100%;
+  width: 100%;
 }
 
 .date {
-text-align: center;
-margin: 0 40px;
+  text-align: center;
+  margin: 0 40px;
 }
 .active-date {
-	background: radial-gradient(circle, #F7CE68 70%, transparent 70%);
+  background: radial-gradient(circle, #f7ce68 70%, transparent 70%);
 }
 .date-number {
-	font-size: 60px;
-	font-weight: 900;
+  font-size: 60px;
+  font-weight: 900;
 }
 .month-name {
-	font-size: 16px;
-	text-transform: uppercase;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 .day-name {
-	font-size: 20px;
+  font-size: 20px;
 }
 .today_total {
-	font-size: 25px;
-	margin: 10px 0;
-	font-weight: 600;
+  font-size: 25px;
+  margin: 10px 0;
+  font-weight: 600;
 }
 
 .progress_container {
-	width: 100%;
-	height: 30px;
-	margin-top: 6px;
-	background-color: rgba(255, 255, 255, 0.304);
-	border-radius: 15px;
-	overflow: hidden;
-	border: 1px solid #ffc36e;
+  width: 100%;
+  height: 30px;
+  margin-top: 6px;
+  background-color: rgba(255, 255, 255, 0.304);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #ffc36e;
 }
 .progress-title {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 .progress_value {
-	height: 30px;
-	background-color: rgb(222, 0, 85);
-	color: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	font-size: 14px;
-	transition: width 1s ease-in-out;
+  height: 30px;
+  background-color: rgb(222, 0, 85);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 14px;
+  transition: width 1s ease-in-out;
 }
 
 h2 {
-	font-family: Pribambas, sans-serif;
-	width: 450px;
-	text-align: center;
-	transition: ease 2s;
+  font-family: Pribambas, sans-serif;
+  width: 450px;
+  text-align: center;
+  transition: ease 2s;
 }
-
 
 #container {
-	width: 95%;
-	max-width: 900px;
-
+  width: 95%;
+  max-width: 900px;
 }
 .day {
-	font-size: 14px;
-	font-weight: 900;
+  font-size: 14px;
+  font-weight: 900;
 }
 .marker {
   display: flex;
@@ -117,14 +125,13 @@ h2 {
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
-	cursor: pointer;
-	width: 100%;
-	min-height: 25px;
-
+  cursor: pointer;
+  width: 100%;
+  min-height: 25px;
 }
 
-.marker:nth-child(2n+1) {
-	background-color: rgb(239, 244, 244);
+.marker:nth-child(2n + 1) {
+  background-color: rgb(239, 244, 244);
 }
 
 .wl-list {
@@ -133,28 +140,33 @@ h2 {
   justify-content: center;
   align-items: center;
   max-width: 1000px;
-	margin: 0 auto;
+  margin: 0 auto;
 }
 .title {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 30px) calc(100% - 210px);
   border-bottom: 1px solid #000;
-	padding: 5px 0;
-	margin-top: 20px;
-	position: relative;
-	pointer-events: none;
+  padding: 5px 0;
+  margin-top: 20px;
+  position: relative;
+  pointer-events: none;
 }
 
 #tasks-list {
-	width: 100%;
+  width: 100%;
 }
 
 .task {
   display: grid;
   grid-template-columns: repeat(7, 30px) calc(100% - 210px);
-	width: 100%;
-	position: relative;
+  width: 100%;
+  position: relative;
+}
+
+.task:hover {
+  background-color: #fdfdfd;
+  filter: brightness(97%);
 }
 .task-title {
   width: 100%;
@@ -163,117 +175,160 @@ h2 {
 .day {
   text-align: center;
 }
+
+.h__day {
+  cursor: pointer;
+}
 .add-task-button {
-	position: fixed;
-	right: 20px;
-	bottom: 20px;
-	width: 70px;
-	height: 70px;
-	background-color: rgb(222, 0, 85);
-	border-radius: 50%;
-	z-index: 200;
-	cursor: pointer;
-	box-shadow: 0 0 30px rgba(109, 52, 14, 0.5);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(222, 0, 85);
+  border-radius: 50%;
+  z-index: 200;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(109, 52, 14, 0.5);
+  transition: ease-in-out 0.2s;
+}
+.active {
+  width: 270px !important;
+  height: 170px !important;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.add-task-button .nav {
+  display: none;
+}
+.active .nav {
+  display: flex;
+  color: #000;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  padding: 25px;
+  background-color: #fff;
+  font-size: 20px;
 }
 
-
-.add-task-button h2, .add-task-button form {
-	display: none;
+.add-task-button h2,
+.add-task-button form {
+  display: none;
 }
 .add-task-button::before {
-	content: '+';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 201;
-	color: #fff;
-	font-size: 35px;
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
+  color: #fff;
+  font-size: 35px;
 }
 
-.add-task {
-	color: rgb(15, 15, 15);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border-radius: 5px;
-	font-weight: 900;
-padding: 30px 25px;
-text-transform: uppercase;
- width: 450px;
- max-width: 90%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	z-index: 200;
-	box-shadow: 0 0 45px rgba(0,0,0, 0.3);
-	transition: width ease 2s;
+.active::before {
+  content: "";
 }
 
-.add-task form {
-	display: flex;
-	flex-direction: column;
-	padding: 25px 0;
+.add-task,
+.add-habit {
+  color: rgb(15, 15, 15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-weight: 900;
+  padding: 30px 25px;
+  text-transform: uppercase;
+  width: 450px;
+  max-width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 200;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.3);
+  transition: width ease 2s;
 }
-.add-task form input {
-	width: 100%;
-	margin-bottom: 20px;
-	font-size: 20px;
+
+.add-task form,
+.add-habit form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0;
+}
+.add-task form input,
+.add-habit form input {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.add-habit form label {
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: none;
+  margin-bottom: 20px;
 }
 
 .close-button {
-	position: absolute;
-	top: -15px;
-	right: -15px;
-	background-color: #000;
-	padding: 10px;
-	color: #fff;
-width: 30px;
-height: 30px;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
-border-radius: 50%;
-z-index: 300;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #000;
+  padding: 10px;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 300;
 }
 
 .overlay {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-background-color: rgba(0,0,0, 0.5);
-z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .hide {
-	display: none;
+  display: none;
 }
 
-.task:hover .del_btn {
-	display: flex;
+.del_btn,
+.habits_del_btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(134, 134, 134);
+  background-color: #ededed;
+  width: auto;
+  height: 25px;
+  padding: 0 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
 }
-.del_btn {
-	position: absolute;
-	right: 20px;
-	top: 50%;
-	transform: translateY(-50%);
-	color: #fff;
-	background-color: #d20202;
-	width: auto;
-	height: 25px;
-	padding: 0 5px;
-	justify-content: center;
-	align-items: center;
-	border-radius: 3px;
-	cursor: pointer;
-	display: none;
-	font-size: 12px;
+.habits_del_btn {
+  top: 20px;
+  right: 10px;
 }
 
 .task-marker {
@@ -284,62 +339,70 @@ z-index: 100;
 }
 
 .in-progress {
-	background: radial-gradient(circle, #000 3px, transparent 3px);
-	border: 2px solid #000;
+  background: radial-gradient(circle, #000 3px, transparent 3px);
+  border: 2px solid #000;
   width: 30px;
   min-height: 25px;
   border-radius: 3px;
 }
 
 .forward {
-	background-image: url(./forward.webp);
-	background-position: center center;
-	background-repeat: no-repeat;
-	border: 2px solid #000;
+  background-image: url(./forward.webp);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 2px solid #000;
   width: 30px;
   min-height: 25px;
   border-radius: 3px;
-	
 }
 
 .delegate {
-	background-image: url(./delegirovano.webp);
-	background-position: center center;
-	background-repeat: no-repeat;
-	border: 2px solid #000;
+  background-image: url(./delegirovano.webp);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 2px solid #000;
   width: 30px;
   min-height: 25px;
   border-radius: 3px;
 }
-.done {
-	background-color: #000!important;
-	border: 2px solid #000;
+
+.marker.done {
+  background-color: #000 !important;
+  border: 2px solid #000;
   width: 30px;
   min-height: 25px;
   border-radius: 3px;
+}
+.h__day.done {
+  background: repeating-linear-gradient(
+    125deg,
+    #854900 0,
+    #854900 1px,
+    #f7ce68 1px,
+    #f8c33b 4px
+  ) !important;
 }
 
 .task-text {
-	padding-left: 50px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-right: 45px;
-	font-size: 15px;
-	font-family: 'Manrope', sans-serif;
+  padding-left: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 45px;
+  font-size: 15px;
+  font-family: "Manrope", sans-serif;
 }
 .del {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
-
 
 .btn {
   padding: 20px 30px;
   border: 1px solid #f9970e;
-  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
   border-radius: 6px;
   transition: 0.3s background;
-	color: #fff;
-	font-size: 20px;
+  color: #fff;
+  font-size: 20px;
 }
 
 .btn:focus {
@@ -364,74 +427,107 @@ input {
 }
 
 form {
-	width: 100%;
+  width: 100%;
+}
+
+.habit {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.habit__title {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.habit__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+.h__day {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fadd93;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 450px) {
-	h2 {
-		width: 100%;
-		font-size: 20px;
-	}
-	article {
-		padding: 0 0 40px 0;
-		margin: 10px;
-		width: 93%;
-	}
-	.task, .title {
-		grid-template-columns: repeat(7, 20px) calc(100% - 140px);
+  h2 {
+    width: 100%;
+    font-size: 20px;
+  }
+  article {
+    padding: 0 0 40px 0;
+    margin: 10px;
+    width: 93%;
+  }
+  .task,
+  .title {
+    grid-template-columns: repeat(7, 20px) calc(100% - 140px);
+  }
+  .task-marker,
+  .in-progress,
+  .forward,
+  .delegate,
+  .done {
+    width: 20px;
+  }
+  .forward,
+  .delegate {
+    background-size: 90%;
+  }
+  .task-text {
+    font-size: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .del_btn {
+    font-size: 10px;
+  }
 
-	}
-	.task-marker, .in-progress, .forward, .delegate, .done {
-		width: 20px;
-	}
-	.forward, .delegate {
-		background-size: 90%;
-		
-	}
-	.task-text {
-		font-size: 12px;
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.del_btn {
-		font-size: 10px;
-	}
-	
-	.welcome {
-		width: 100%;
-		border-radius: 0 0 5px 5px;
-		margin-top: 0;
-		padding: 0;
-		align-items: center;
-		
-	}
-	.date {
-	text-align: center;
-	margin: 0;
-	padding: 25px 10px;
-	color: #000;
-	}
-	.date-number {
-		font-size: 30px;
-	}
-	.month-name {
-		font-size: 14px;
-		text-transform: uppercase;
-	}
-	.day-name {
-		font-size: 14px;
-	}
-	.welcome-text {
-		padding: 25px 10px;
-		width: 100%;
-		font-size: 12px;
-	}
-	.today_total {
-		font-size: 16px;
-		margin-top: 5px;
-	}
+  .welcome {
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+    margin-top: 0;
+    padding: 0;
+    align-items: center;
+  }
+  .date {
+    text-align: center;
+    margin: 0;
+    padding: 25px 10px;
+    color: #000;
+  }
+  .date-number {
+    font-size: 30px;
+  }
+  .month-name {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .day-name {
+    font-size: 14px;
+  }
+  .welcome-text {
+    padding: 25px 10px;
+    width: 100%;
+    font-size: 12px;
+  }
+  .today_total {
+    font-size: 16px;
+    margin-top: 5px;
+  }
 
-	.progress_value {
-		font-size: 12px;
-	}
+  .progress_value {
+    font-size: 12px;
+  }
 }

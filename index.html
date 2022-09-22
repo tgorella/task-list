@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Шагающий список задач</title>
+	<title>Шагающий список задач и трекер привычек</title>
 	<link rel="stylesheet" type="text/css" href="./bujo.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,45 +13,65 @@
 </head>
 
 <body>
-<article>
-	<div class="welcome">
-		<div class="date">
-			<div class="date-number" id="date-number">14</div>
-			<div class="month-name" id="month-name">сентября</div>
-			<div class="day-name" id="day-name">четверг</div>
+	<article>
+		<div class="welcome">
+			<div class="date">
+				<div class="date-number" id="date-number">14</div>
+				<div class="month-name" id="month-name">сентября</div>
+				<div class="day-name" id="day-name">четверг</div>
+			</div>
+			<div class="welcome-text" id="welcomeStat">
+			</div>
 		</div>
-		<div class="welcome-text" id="welcomeStat">
+		<div class="add-task-button" id="add-task-button">
+			<div class="nav">
+				<div class="add__task_me" data-target="task">Добавить задачу</div>
+				<div class="add__task__habit" data-target="habit">Добавить привычку</div>
+			</div>
 		</div>
-	</div>
-	<div class="add-task-button" id="add-task-button"></div>
-	<div class="add-task hide" id="add-task-container">
-		<div class="close-button" onclick="closeModal()">X</div>
-		<h2>Добавить новую задачу</h2>
-		<form id="form">
-			<input type="text" name="newtitle" placeholder="Текст" />
-			<button type="submit" class="btn">+ Создать!</button>
-		</form>
-	</div>
-	<div class="overlay hide" id="overlay"></div>
 
-	<div class="wl-list container" id="container">
-		<div class="title">
-			<div class="day">П</div>
-			<div class="day">В</div>
-			<div class="day">С</div>
-			<div class="day">Ч</div>
-			<div class="day">П</div>
-			<div class="day">С</div>
-			<div class="day">В</div>
-			<div class="task-title"></div>
+		<div class="add-task hide" id="add-task-container">
+			<div class="close-button" onclick="closeModal()">X</div>
+			<h2>Добавить новую задачу</h2>
+			<form id="form">
+				<input type="text" name="newtitle" placeholder="Задача" />
+				<button type="submit" class="btn">+ Создать!</button>
+			</form>
 		</div>
-		<div id="tasks-list">
 
+		<div class="add-habit hide" id="add-habit-container">
+			<div class="close-button" onclick="closeModal()">X</div>
+			<h2>Добавить трекер привычек</h2>
+			<form id="habit_form">
+				<input type="text" name="habitTitle" placeholder="Название привычки" />
+				<label for="numberDays">Укажите количество дней для отслеживания</label>
+				<input type="number" name="numberOfDays" min="1" max="100" id="numberDays">
+				<button type="submit" class="btn">+ Создать!</button>
+			</form>
 		</div>
-	</div>
+
+		<div class="overlay hide" id="overlay"></div>
+
+		<div class="wl-list container" data-id="container" id="container">
+			<div class="title">
+				<div class="day">П</div>
+				<div class="day">В</div>
+				<div class="day">С</div>
+				<div class="day">Ч</div>
+				<div class="day">П</div>
+				<div class="day">С</div>
+				<div class="day">В</div>
+				<div class="task-title"></div>
+			</div>
+			<div id="tasks-list">
+			</div>
+		</div>
 
 
-</article>
+	</article>
+	<article id="habit_tracker" data-id="habit_tracker">
+
+	</article>
 	<script src="./bujo.js"></script>
 </body>
 
