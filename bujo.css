@@ -34,7 +34,7 @@ article {
 #habit_tracker {
   display: flex;
   flex-direction: column;
-  width: 330px;
+  width: 295px;
   max-width: 97%;
   background-color: transparent;
   box-shadow: none;
@@ -450,8 +450,8 @@ form {
 }
 .habit__title {
   text-align: center;
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 14px;
+  margin-bottom: 10px;
   font-weight: 400;
   color: rgb(71, 71, 71);
 }
@@ -462,9 +462,8 @@ form {
   gap: 10px;
 }
 .h__day {
-  width: 30px;
-  aspect-ratio: 1/1;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -474,7 +473,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
   color: grey;
 }
 
