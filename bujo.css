@@ -19,10 +19,10 @@ body {
 }
 article {
   background-color: #fff;
-  margin: 25px 10px;
+  margin: 25px 5px;
   padding: 0 11px 50px 11px;
   min-height: 95vh;
-  max-width: 95%;
+  max-width: 700px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -44,7 +44,7 @@ article {
 
 .welcome {
   display: flex;
-  width: 800px;
+  width: 700px;
   max-width: 95%;
   margin: o auto;
   padding: 25px 40px;
@@ -60,43 +60,44 @@ article {
 
 .date {
   text-align: center;
-  margin: 0 40px;
+  margin: 0 40px 0 0;
 }
 .active-date {
   background: radial-gradient(circle, #f7ce68 70%, transparent 70%);
 }
 .date-number {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 900;
 }
 .month-name {
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 .day-name {
-  font-size: 20px;
+  font-size: 12px;
 }
 .today_total {
-  font-size: 25px;
-  margin: 10px 0;
+  font-size: 20px;
+  margin: 5px 0;
   font-weight: 600;
 }
 
 .progress_container {
   width: 100%;
-  height: 35px;
+  height: 30px;
   margin-top: 6px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid #ffc36e;
-  padding: 5px;
+  padding: 2.5px;
   display: flex;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 .progress-title {
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 14px;
 }
 .progress_value {
   height: 25px;
@@ -122,10 +123,10 @@ h2 {
 
 #container {
   width: 95%;
-  max-width: 900px;
+  max-width: 700px;
 }
 .day {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 900;
 }
 .marker {
@@ -154,12 +155,13 @@ h2 {
 .title {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(7, 30px) calc(100% - 210px);
+  grid-template-columns: repeat(7, 25px) calc(100% - 175px);
   border-bottom: 1px solid #000;
   padding: 5px 0;
   margin-top: 20px;
   position: relative;
   pointer-events: none;
+  font-size: 14px;
 }
 
 #tasks-list {
@@ -168,7 +170,7 @@ h2 {
 
 .task {
   display: grid;
-  grid-template-columns: repeat(7, 30px) calc(100% - 210px);
+  grid-template-columns: repeat(7, 25px) calc(100% - 175px);
   width: 100%;
   position: relative;
 }
@@ -341,16 +343,16 @@ h2 {
 }
 
 .task-marker {
-  border: 2px solid #000;
-  width: 30px;
+  border: 2px solid rgb(52, 52, 52);
+  width: 100%;
   min-height: 25px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .in-progress {
   background: radial-gradient(circle, #000 3px, transparent 3px);
-  border: 2px solid #000;
-  width: 30px;
+  border: 2px solid rgb(52, 52, 52);
+  width: 100%;
   min-height: 25px;
   border-radius: 3px;
 }
@@ -359,28 +361,30 @@ h2 {
   background-image: url(./forward.webp);
   background-position: center center;
   background-repeat: no-repeat;
-  border: 2px solid #000;
-  width: 30px;
+  background-size: contain;
+  border: 2px solid rgb(52, 52, 52);
+  width: 100%;
   min-height: 25px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .delegate {
   background-image: url(./delegirovano.webp);
   background-position: center center;
   background-repeat: no-repeat;
-  border: 2px solid #000;
-  width: 30px;
+  background-size: contain;
+  border: 2px solid rgb(52, 52, 52);
+  width: 100%;
   min-height: 25px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .marker.done {
-  background-color: #000 !important;
-  border: 2px solid #000;
-  width: 30px;
+  background-color: rgb(52, 52, 52) !important;
+  border: 2px solid rgb(52, 52, 52);
+  width: 100%;
   min-height: 25px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .h__day.done {
   /* background: repeating-linear-gradient(125deg, #854900 0, #854900 1px, #F7CE68 1px, #f8c33b 4px)!important; */
@@ -393,8 +397,8 @@ h2 {
   padding-left: 50px;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-right: 45px;
-  font-size: 15px;
+  padding-right: 15px;
+  font-size: 13px;
   font-family: "Manrope", sans-serif;
 }
 .del {

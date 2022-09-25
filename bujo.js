@@ -11,7 +11,7 @@ const taskList = document.querySelector('#tasks-list');
 const dateNumber = document.querySelector('#date-number');
 const monthName = document.querySelector('#month-name');
 const dayName = document.querySelector('#day-name');
-const currentDate = new Date();
+let currentDate = new Date();
 const daysOfWeek = document.getElementsByClassName('day');
 const welcomeStats = document.querySelector('#welcomeStat');
 const habitContainer = document.querySelector('[data-id="habit_tracker"]');
@@ -98,13 +98,11 @@ this.day[index] = day;
 let tasks = getState();
 let habits = getHabitsState();
 
-dateNumber.innerHTML = currentDate.getDate();
-
-getCurrentMonth();
-getCurrentDateName();
+updateDate();
 showStats();
 renderTaskList();
 renderHabitList();
+setInterval(updateDate, 3600000);
 
 function getCurrentMonth() {
 	const montNames = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря',]
@@ -120,6 +118,14 @@ function getCurrentDateName() {
 	daysOfWeek[currentDate.getDay()-1].classList.add('active-date');
 }}
 
+function updateDate() {
+	currentDate = new Date();
+	dateNumber.innerHTML = currentDate.getDate();
+	getCurrentMonth();
+	getCurrentDateName();
+	console.log('прошел час',currentDate)
+}
+
 function showStats() {
 	getTotalTasks();
 	getCurrentDateTaskTotal();
@@ -127,7 +133,7 @@ function showStats() {
 
 function getTotalTasks() {
 	const taskTotal = tasks.length;
-	welcomeStats.innerHTML = `<p>Задач в списке: ${taskTotal}</p> `;
+	welcomeStats.innerHTML = `<p style="font-size: 14px;">Задач в списке: ${taskTotal}</p> `;
 }
 
 function getCurrentDateTaskTotal() {
@@ -140,7 +146,7 @@ function getCurrentDateTaskTotal() {
 					return dayKey === 'done'}).length;
 				const percent =  Number.parseInt(done * 100 / total)
 	welcomeStats.innerHTML += `<p class="today_total">Задач на сегодня: ${total}</p>
-	<p style="progress-title">Прогресс:</p>
+	<p class="progress-title">Прогресс:</p>
 			<div class="progress_container"><div class="progress_value" id="progress">${percent}%</div></div>
 			`
 			const progress = document.querySelector('#progress')
